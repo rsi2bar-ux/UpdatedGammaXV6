@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: gammax-v6-backup
+    runtime: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: HOST
+        value: 0.0.0.0
+      - key: DEFAULT_INDEX
+        value: NIFTY
+      - key: FAILOVER_STANDBY
+        value: "true"
